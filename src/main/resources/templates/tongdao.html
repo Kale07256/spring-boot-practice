@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="/static/bootstrap-4.0.0-dist/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="/static/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css">-->
+</head>
+<body>
+
+
+<table class="table" border="1" id="mytable">
+    <tr>
+        <td><input name="tongdao" type="text" value="白妙全国" readonly></td>
+
+        <td><input name="tongdao" type="text" value="白妙分省" readonly></td>
+
+        <td><input name="tongdao" type="text" value="网信全网" readonly></td>
+
+    </tr>
+    <tr>
+        <td><input name="xiaohao" value="indd"></td>
+
+        <td><input name="xiaohao" value=""></td>
+
+        <td><input name="xiaohao" value="ewqff"></td>
+
+    </tr>
+</table>
+
+
+</body>
+
+<script>
+    function f() {
+        var tongdao = document.getElementsByName("xiaohao");
+        console.log(tongdao);
+        var arr = [];
+        var flag = "flase";
+        for (var io = 0; io < tongdao.length; io++) {
+            if (tongdao[io].value === "") {
+                console.log("meiyouzhi");
+                return flag;
+            } else {
+                arr.push(tongdao[io].value);
+            }
+
+        }
+        console.log(arr)
+
+    }
+
+    // var mytab = document.getElementById("mytable");
+    // var tbrows = mytab.rows;
+    // // console.log(tbrows[1].cells[0].getElementsByTagName("INPUT")[0].value)
+    // for (var i = 0; i < tbrows.length; i++) {
+    //     // console.log(tbrows[i]);
+    //     row_str = '';
+    //     for (var j = 0; j < tbrows[i].cells.length; j++) {
+    //         // console.log(tbrows[i].cells[j].innerHTML);
+    //
+    //         console.log(tbrows[i].cells[j].getElementsByTagName("INPUT")[0].value);
+    //     }
+    // }
+
+</script>
+
+<script>
+    // var a = document.getElementsByName("prd_list_check");
+    // var table = document.getElementById("ready_list_tab");
+    // var rows = table.rows;
+    // var tab_str='';
+    // var info_str='';
+    //
+    // for(var i=1;i<rows.length;i++)
+    // {
+    //     if(a[i].checked)
+    //     {
+    //         row_str = '';
+    //         for (var j=1; j<rows[i].cells.length ; j++ )
+    //         {
+    //             if (row_str =='')
+    //             {
+    //                 row_str = rows[i].cells[j].getElementsByTagName("INPUT")[0].value;
+    //             }
+    //             else{
+    //                 row_str = row_str+"|"+rows[i].cells[j].getElementsByTagName("INPUT")[0].value;
+    //             }
+    //         }
+    //         if(tab_str=='')
+    //         {
+    //             tab_str = row_str;
+    //         }
+    //         else{
+    //             tab_str = tab_str + ";" + row_str;
+    //         }
+    //         //
+    //         info_str = info_str+ '\n' + rows[i].cells[3].getElementsByTagName("INPUT")[0].value +'-'+ rows[i].cells[4].getElementsByTagName("INPUT")[0].value  +'-'+ rows[i].cells[5].getElementsByTagName("INPUT")[0].value  +'-'+ rows[i].cells[6].getElementsByTagName("INPUT")[0].value;
+    //     }
+    // }
+</script>
+</html>

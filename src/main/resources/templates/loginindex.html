@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+    <!--integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="/static/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="">
+            <button class="btn-secondary ">按钮</button>
+            <select id="province" class="selectpicker">
+                <option id="aaa">Mustard</option>
+                <option id="aaa">Ketchup</option>
+                <option id="aaa"> Barbecue</option>
+            </select>
+
+        </div>
+
+        <table class="table">
+            <tr>
+                <td>
+                    aaaaaa
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="alert alert-danger" role="alert">
+        This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="container">
+        <label id="restbyparam">
+            <button onclick="reqRestconrtollerFuncRequestParam()">请求Restcontroller通过字段识别</button>
+        </label> <br>
+        <label id="restbypath">
+            <button onclick="reqRestconrtollerFuncPathVariable()">请求Restcontroller通过路径识别</button>
+        </label>
+        <br>
+
+    </div>
+    <div id="app">
+        {{ message }}
+    </div>
+</div>
+
+</body>
+<script src="/static/js/jquery3.4.1.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/static/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+<script src="/static/bootstrap-select-1.13.9/dist/js/bootstrap-select.js"></script>
+
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+
+    // var value = $("#Mustard").html();
+    // alert(value)
+    $('#province').selectpicker({
+        title: '--请选择--',
+        //actionsBox: true,
+        //style: 'btn-info',
+        dropupAuto: true,
+        liveSearch: true,
+        doneButton: true,
+        multipleSeparator: ',',
+        liveSearchPlaceholder: '',
+        selectAllText: '全选',
+        width: 160,
+        countSelectedText: "已选择{0}个省份",
+        selectedTextFormat: "count > 3"
+    });
+
+    function tescli() {
+
+        var select_value = $('#province').val();
+        alert(select_value);
+
+    }
+
+    function reqRestconrtollerFuncRequestParam() {
+        // loginurl = "http://localhost:8080/registerindex";
+        // var username = $("#user").val();
+        // var userpass = $("#password").value;
+        // console.log(userpass);
+        // console.log(loginurl);
+        // reqdata = [];
+        // reqdata.push({"name": "user", "value": username});
+        // reqdata.push({"name": "pass", "value": userpass});
+        // loginurl = "http://localhost:8080/departments?departmentId=aaa";
+        loginurl = "http://localhost:8080/restype?restypeRequest=requestparam";
+
+        console.log(loginurl);
+        reqdata = '';
+        $.ajax({
+            url: loginurl,
+            data: reqdata,
+            type: "post",
+            dataType: "text",
+            success: function (data) {
+                console.log("成功");
+            },
+            error: function (data) {
+                console.log("失败");
+            }
+        })
+
+    }
+
+    function reqRestconrtollerFuncPathVariable() {
+        // loginurl = "http://localhost:8080/registerindex";
+        // var username = $("#user").val();
+        // var userpass = $("#password").value;
+        // console.log(userpass);
+        // console.log(loginurl);
+        // reqdata = [];
+        // reqdata.push({"name": "user", "value": username});
+        // reqdata.push({"name": "pass", "value": userpass});
+        loginurl = "http://localhost:8080/restype/requestparam";
+        console.log(loginurl);
+        reqdata = '';
+        $.ajax({
+            url: loginurl,
+            data: reqdata,
+            type: "post",
+            dataType: "text",
+            success: function (data) {
+                console.log("成功");
+            },
+            error: function (data) {
+                console.log("失败");
+            }
+        })
+
+    }
+
+</script>
+<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"-->
+<!--integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"-->
+<!--integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"-->
+<!--integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
+<!--crossorigin="anonymous"></script>-->
+</html>
